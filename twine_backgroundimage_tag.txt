@@ -1,0 +1,20 @@
+
+
+Edit story stylesheet
+
+Code:
+
+tw-story {
+ background-image:url("ENTER YOUR URL HERE");
+ background-size:cover;
+}
+
+Code with tag: - The tag here is the word "snow"
+
+tw-story[tags~="snow"] {
+ background-image:url("ENTER YOUR URL HERE");
+ background-size:cover;
+}
+
+
+ XY04TIBZQSBB

@@ -1,0 +1,785 @@
+:: StoryTitle
+Welcome to Pavis
+
+
+:: StoryData
+{
+	"ifid": "28853465-09CB-42F2-A6B1-78D9AC74A66C",
+	"format": "Chapbook",
+	"format-version": "1.0.0",
+	"start": "Start",
+	"zoom": 0.6
+}
+
+
+:: Start {"position":"600,200","size":"100,100"}
+--
+{embed passage: 'Calendar'}
+{embed passage: "Configuration"}
+{embed passage: "NewsVariables"}
+{embed passage: "DecisionVariables"}
+{embed passage: "ClanNewsText"}
+{embed passage: "GerrinNewsText"}
+{embed passage: "Stats"}
+
+How long has it been since you laast set foot in Pavis? / 
+Before the Cradle.
+
+Before the Windstop.
+
+Before your brother Gerrin fell.
+
+Seasons that feel like years.
+
+It is a bitter return to [[Pavis->Arrival]]
+
+
+:: ClanNewsText {"position":"600,0","size":"100,100"}
+clannews: ["I thought they were all killed in that battle in Earth season?", "They all just scattered to the winds I heard.", "I thought the Lunars hunted down and killed them all?", "Sold into slavery for sure – the Lunars are seeking slaves everywhere now. Never seen the market so busy.", "Outlaws all of them. Hiding out somewhere way down the river.", "Didn't the Duke of Sun County seize their village and force them into slavery?", "Didn't they all have to convert to the Seven Mothers? That's what I heard.", "Well if the Lunars didn't get them, the nomads are sure to have finished them off.", "I thought they're still hiding out in the marshes somewhere?", "Well some are still alive – a few of them came up to Pavis in Dark season to trade.", "I heard there was a big nomad raid down there – don't think many survived.", "Most who are still alive are hiding out in Pavis, Bullford or Garhound from what I heard.", "A new Lunar landholder arrived at end of Earth Season - he's been granted the whole of the New Marsh as part of his lands.", "Been driven out by Lunar farmers and grantholders I expect.","I hear the new Grantholder as taken up residence in what used to be Stormhaven but I don't know what happened to the clan there.", "They serve a new Lunar land-holder who has been." ]
+
+--
+
+
+:: Stats {"position":"375,0","size":"100,100"}
+followers: ["Chysman", "Karyth"]
+companions: ["Calops", "Malan"]
+karythHealth: "good"
+chysmanHealth: "good"
+cuthbertHealth: "good"
+
+sbull: 50
+orlanth: 70
+karyth: 80
+chysman: 80
+family: 70
+clan: 50
+zfel: 30
+
+ask_gerrin_count: 0
+ask_clan_count: 0
+ingilli: false
+
+--
+
+
+:: Calendar {"position":"200,0","size":"100,100"}
+season: ["Sea","Fire","Earth","Dark","Storm","Sacred"] 
+week: ["Disorder","Harmony","Death","Fertility","Stasis","Movement","Illusion","Truth"]
+sacredweek: ["First","Second"]
+day: ["Freezeday", "Waterday", "Clayday", "Windsday", "Fireday", "Wildday", "Godsday"]
+doy: 220 
+startyear: 1622
+--
+
+
+:: NewsVariables {"position":"1000,0","size":"100,100"}
+arengarclannews: 0
+farengargerrinnews: 0
+farengaruroxinews: 0
+farengarorlanthnews:0
+pilgrimclannews: 0
+pilgrimgerrinnews: 0
+pilgrimorlanthnews:0
+
+
+nomadnews: 0 
+rivernews: 0
+smannews: 0
+--
+
+
+:: DecisionVariables {"position":"1200,0","size":"100,100"}
+hunt: 0
+pairingStone: true
+gagix: 0 
+new_plan: false
+templeBarge: false
+uroxTemple: false
+airTemple: false
+lightTemple: false
+humaktTemple: false
+uleriaTemple: false
+knowtemple: false
+ingilli: false
+xalendra: false
+celeste: false
+revealed_identity: 0
+--
+
+
+:: Arrival {"position":"625,400","size":"100,100"}
+arriveDoy: doy
+--
+You join the queue of people seeking entry by the gates. There's no shortage of Sartarite refugees among them, few of which are allowed entry. You clutch your employment paper from Malan and hope they will be enought to gain enty without too many questions.
+
+The Lunar guards seem even slower and more petty than usual. Their sense of invulnerability even greater than usual.
+
+"From Sartar are you?" asks the Decurian, chuckling. ''I hear it's a bit cold out there. Although if you've come looking for the winds you need to keep on going east. Perhaps the other side of the Wastes you'll find you gods still blowing.'
+
+You see Chysman bristling with a glint in his eye as he placed a hand on his hilt. Karyth shoots you a warning glance.
+
+'You got something to say about that?' asks the lunar.
+
+Should you [[call Chysman to order sharply->rebuke_Chysman]] before he does something rash, [[distract these Lunars->distract_Lunars]] or [[trust the lad->trust_Chysman]] and see what happens?
+
+
+:: Date {"position":"200,148","size":"100,100"}
+numseason:  Math.floor(doy/56)
+numweek: Math.floor( (doy-(numseason*56)) /7 ) 
+numday: doy-( (numseason*56)+(numweek*7) )-1
+currentSeason: season[numseason]
+currentWeek: week[numweek]
+currentDay: day[numday]
+--
+Today's date is: {currentDay} day, {currentWeek} week, {currentSeason} season.
+
+{back link, label: 'Back'}
+
+
+:: Configuration {"position":"200,300","size":"100,100"}
+numseason:  Math.floor(doy/56)
+numweek: Math.floor( (doy-(numseason*56)) /7 ) 
+numday: doy-( (numseason*56)+(numweek*7) )-1
+currentSeason: season[numseason]
+currentWeek: week[numweek]
+currentWeek(currentSeason==="Sacred"):sacredweek[numweek]
+currentDay: day[numday]
+currentYear: startyear+Math.floor(doy/294)
+
+config.header.left: "Quit"
+config.header.center: "**Return to Pavis**"
+config.header.right: "Scene:  {passage.name}"
+
+config.footer.left: "{embed passage: 'StatMenu'}"
+config.footer.center: "**{currentDay}, {currentWeek} week, {currentSeason} season, {currentYear}**"
+config.footer.right: "{embed passage: 'MapMenu'}"
+
+--
+
+
+:: GerrinNewsText {"position":"800,0","size":"100,100"}
+gerrinnews: ["Gerrin who?", "Coriales you say – weren’t they all massacred by the Lunars?", "Dead isn’t he? Damned fool who was sure to die young.", "Living it up I the Governor’s palace I heard. Isn’t he the chieftain who sold his whole clan and family to the Lunars?", "Wasn’t he publicly crucified on the wall of Pavis? I think that was Gerrin Coriales.", "Killed after the battle I hear. They Lunars didn’t take any prisoners but executed them all in the field.", "Didn’t he die when Krogar tried to rescue him from the Governor’s jail. I’m sure that’s what happened. Probably a better fate than what the Lunars would have done to him.", "He’s alive and free! Krogar and his Orlanthi friends rescued him from the Governor’s palace and escaped with him but I don’t know where.", "Didn’t he escape back to his clan that’s hidden in the marshes?", "I heard he was killed by a Bison rider after he betrayed them to the Lunars?", "The Lunars sold all the captives of that battle to the sable riders I expect. Where he is now is anyone’s guess.", "He fell in battle I heard, fighting the lunars on the day the winds failed. They say he was born under a bad fate rune.", "Captured and sold to the Morokanth I heard. Just an ignorant animal now serving his beast masters. Best forget him – nothing you can do now.", "Captured I hear but I never saw his crucifixion. Probably just died in the Governor’s cells I expect. It wasn’t long after that they closed the air temple and cracked down on those who worshipped there.", "I believe he was captured but there was no public execution. I suspect he’s toiling in the Governor’s salt mines, if he hasn’t already died there.", "Didn’t the Lunars sell him to the Duke of Sun County – he was wanted there for all manner of crimes. You know what Sun justice looks like. I doubt he’s alive today.", "Well, they say he was captured but was never brought to trial or execution… so he must have escaped mustn’t he?", "Captured wasn’t he? Him and many of his clan… and bison riders I heard. Some were executed but most just sold to slavers.", "Disappeared about the same time as Krogar and his friends. Never seen or heard of since.", "Some say he escaped with Krogar. Otherwise why didn’t the Lunars execute them publicly?", "Following the battle, he and the other prisoners were paraded through to Pavis in chains. After that? Not sure – executed or died under questioning?", "I heard he was tortured to death – some say he refused to say a word to betray those who managed to escape. But not many remain speechless under the ministrations of the Lunars…", "He was brought to Pavis, with the other survivors of that foolhardy enterprise. Some were executed others sold into slavery. Not sure which is worse.", "Sold to slavers like almost anyone who so much as breaks the curfew. Where are they taking them all is what I’d like to know.", "Probably to the Governor’s salt mines? Isn’t that where they’re taking everyone these days? ", "Well there hasn’t been a public execution for many a season that I recall. Now they just sell everyone to the slavers. Someone must be making a lot of money.", "Sold into slavery for sure. But most of the slaves now get taken out of Prax but I don’t know where to. The Empire I guess?", "Yeah I remember him – got sold with a lot of bison riders to a Lunar slaver. Or was it Morokanth?", "Pimper's block my friend – like all the other who challenge the Governor these days." ]
+--
+
+
+:: Show_Stats {"position":"75,600","size":"100,100"}
+config.footer.left: ""
+config.footer.center: "**{currentDay}, {currentWeek} week, {currentSeason} season**"
+config.footer.right: ""
+--
+
+Your followers are: {followers}
+
+Your travelling companions are: {companions}
+
+{back link, label: 'Back'}
+
+
+:: Show_Map {"position":"300,600","size":"100,100"}
+Image of Prax
+
+{back link, label: 'Back'}
+
+
+:: MapMenu {"position":"300,450","size":"100,100"}
+[if passage.name !== 'Show_Map']
+[[Show_Map]] 
+[note]
+see: https://intfiction.org/t/chapbook-modal-text-window-strategy/52457/3
+
+
+:: StatMenu {"position":"100,450","size":"100,100"}
+[if passage.name !== 'Show_Stats']
+[[Show_Stats]] 
+[note]
+see: https://intfiction.org/t/chapbook-modal-text-window-strategy/52457/3
+
+
+:: Arrival at Gimpy's {"position":"798,396","size":"100,100"}
+Gimpy's seems much quieter than you remember. As you look round for a familiar face you see no sign of Krogar, Celeste or any other of the Frees. No sign of once familiar faces of Grahaem Finehand or ??? 
+You notice how everyone looks up at your arrival but there is no sign of any recognition or friendliness in the stares.
+
+Karyth draws you out of your reminiscing, gesutirng towards a far table around which you see the familiar faces of Malan and Calops. They greet you warmly, relieved you have arrived safely.
+
+[if pairingStone]
+'But where is Orlmarth and his followers?' asks Malan.
+A silence falls over the table as you explain all that took place at the Pairing Stones.
+Malan shakes his head. 
+"I thought it a fool's errand at the time but there is no turning him once he has decided upon a course of action. Let us hope the gods have not entirely abandoned him. He is much blessed by Mastakos so I will hope he has returned safely to Culbrea lands and saved himself the arduous journey we now face!
+
+
+We have discussed our next steps while awaiting your arrival. Calops here wishes to go on ahead to Garhound and then Stormhaven to learrn how things stand and perhaps alert your family to your return. He will attract much less attention than if you go yourself. He will send word abut how things fare among your clan and family.
+
+[if pairingStone]
+I have heard talk of new Lunar settlers having been granted land near Garhound and around the New Bog - although I find it hard to believe there would be much interest in such marshland. If it is true however, it may make our task much harder than we thought. 
+
+Also, a new governor named Halcyon var Enkorth was appointed but a season ago. Many known troublemakers were crucified within the first few weeks of his arrival but I have not heard news that any of your clans people were among them. 
+Nevertheless, those who might have once openly challenged the authority of the Empire are now scarce indeed, particularly now Orlanth and the Earth sleeps. The air temple was empty when I visited and even here at Gimpy's there is no open challenge to the governor's authority.
+
+We must use our time here in Pavis [[carefully->pavis.planning]].
+
+
+:: Gatehouse {"position":"600,600","size":"100,100"}
+You all keep your own council as complete the formalities at the gates. Eventually you pass through the gates of New Pavis and enter its familiar streets filled with so many memories.
+
+You set off to [[Gimpy's->Arrival at Gimpy's]] where you agreed to meet with your travelling companions.
+
+
+:: Day in Pavis {"position":"1305,500","size":"100,100"}
+doy: doy+1
+tired(doy-arriveDoy<2): true 
+--
+[if passage.visits===1]
+You wake up late the next day with an unpleasant hangover. Must be a long time since you drank like last night. Malan greets you at the bar and explains that Calops has already departed.  Karyth looks bright and energetic. Chysman less so. So, what will you do on your first day in Pavis?
+
+[if tired===true]
+Weary after your travelling you could just [[sleep away the day->do nothing]]
+[if new_plan===false]
+You remember something about a new plan so you could [[ask Malan about it->different plan]]
+
+Or you could visit somewhere - and perhaps find some useful information... but where?
+
+[[The Market]]
+
+[[Healing Hall]]
+
+[if airTemple===false]
+[[Air temple]]
+
+[if uroxTemple===false]
+[[Stormbull temple]]
+
+[[Knowledge temple]]
+
+[[Humakti temple]]
+
+[if lightTemple===false]
+[[Light temple]]
+
+[[Temple barge]]
+
+[if templeBarge===true && ingilli===false]
+[[Ingillis]] offices
+
+
+:: Healing Hall {"position":"1798,900","size":"100,100"}
+_needhealing: false
+_needhealing (cuthbertHealth!='good' || karythHealth!='good' || chysmanHealth!='good'):  true
+--
+[if passage.visits===1]
+You enter the halls of healing and are shocked at how crowded its courtyards are. Most of those seeking help are poor and often starving. Others show signs of having been touched by the spirits of Mallia. Even here in Pavis, the long winter is bringing with it much suffering and affliction.
+
+After a few hours of patient waiting, you eventually manage to speak to a young initiate who looks familiar
+
+She frowns  and then mutual recognition dawns on both of you.
+
+Cuthbert Coriales? I'm Andrea - do you not remember? I was a companion of  Carrick's during ??? 
+
+She seems genuinely pleased and surpised at seeing you. She asks [[how she can help->Q_to_Healers]].
+
+[if _needhealing && passage.visits>1]
+After many long hours of waiting amid the sick and dying, asking after Andrea, you eventually find an intitiate and explain your need for healing. You promise you will offer generous compensation for the lady's [[healing magic->pavis.healing]], fingering a black pearl.
+[if !_needhealing && passage.visits>1]
+
+You offer prayers to Chalana Arroy but it is so busy and overcrowded you soon {back link, label:"depart."}
+
+
+:: Knowledge temple {"position":"1230,898","size":"100,100"}
+Memories
+Jakul or someone recognizes
+Cardomides
+
+
+:: Ingillis {"position":"1300,298","size":"100,100"}
+It takes you a fair while, but eventually you find the tall, familiar  building where the Ingillis carry out their business. The courtyard is bustling and full of fish traders, merchants and boatman.
+Eventually you get hold of a scribe and ask after  the Ingilli spokeman, Genara Eberhel, who you've had dealings with before. 
+Do you give your [[real name->Ingilli_truth]], announce you a [[river voice blessed by Zola Fel->Ingilli_rvoice]] or pretend to be a [[mercenary looking for work->Ingilli_pretend]]?
+
+
+:: Temple barge {"position":"1398,895","size":"100,100"}
+--
+You show your tattoed hand to those at the entrance to the barge and hear excited whispers as they step aside to allow entry.
+
+Within a newtling bows and welcomes you as a River voice. 
+
+'Will you join us in our worship?'
+
+Will you [[join in the worship to Zola Fel->joinWorship]]?
+
+Or explain [[you only worship the gods of storm now->refuseWorshoip]]
+
+
+:: Light temple {"position":"695,901","size":"100,100"}
+You reach Rich Hill where you're subject to many suspicious glances as you approach the gleaming golden dome of the temple. Wasn't it from a house near here that you rescued your Ethwynn and Ethwainn?
+As you climb the steps to the Temple beneath the wary regard of the templars above, Chysman grabs your shoulder asking 'What are we doing here?'
+
+What are you doing here?
+"I don't know anymore - just a bad idea, let's get [[back to Gimpy's->Day in Pavis]]"
+"Trust me, I know what I'm doing" you say as you [[carry on to the temple->enterLightTemple]]
+
+
+:: Air temple {"position":"900,903","size":"100,100"}
+Abandoned
+
+
+:: Coriales house {"position":"1728,556","size":"100,100"}
+
+
+:: Lunar Interest 1 {"position":"698,1298","size":"100,100"}
+
+
+:: Lunar Interest 2 {"position":"898,1298","size":"100,100"}
+
+
+:: The Market {"position":"1005,298","size":"100,100"}
+
+
+:: Speak to Malan {"position":"200,895","size":"100,100"}
+
+
+:: Speak to Calops {"position":"400,900","size":"100,100"}
+
+
+:: Bounty Hunters {"position":"1098,1298","size":"100,100"}
+
+
+:: Celeste {"position":"954,1416","size":"100,100"}
+Disguise as waitress - attractive but
+
+
+I hope you do soldier - because the last time you were in Pavis you bedded me in the stables.
+
+
+Well Cuthbert Coriales, if you think dressing up as a mercenary thug and claiming to be a sell sword fleeing chilly Sartar is enough to pass unoticed,  I beg to differ.
+
+I guess you think you've been discrete these past {daysInPavis} days and by the standards of your family I'd  agree. But a handsome, axe wielding Sartarite with a distinctive scar down his face doesn't pass unoticed. And there's enough people who remember the  much talked about antics of your family to put two and two together and get a big fat bounty! I take it you know there's a 1000 L bounty on your head and that of each of you brothers and cousins?
+
+
+:: Taverns {"position":"2236,765","size":"100,100"}
+
+
+:: rebuke_Chysman {"position":"500,325","size":"100,100"}
+chysman: chysman-5
+--
+You gruffly tell Chysman to shut it.
+
+He gives you an angry look but says nothing. The lunar laughs.
+
+'Yes I'd do what he says lad or you'll be all joining all those the new governor Halcyon var Enkorth has been crucifying.'
+
+You recall all the times your brothers tried to keep you in line and wonder at how things have changed.
+
+[[return->Gatehouse]]
+
+
+:: trust_Chysman {"position":"500,400","size":"100,100"}
+revealed_identity: revealed_identity+1
+karyth:karyth-5
+--
+You ignore Karyth's warning glance.
+
+'Sor-Eel must have time on his hands now he doesn't have to spend his days chasing the worshippers of Orlanth' oberved Chysman.
+
+The Lunars smile.
+
+'It's not Sor-Eel any longer. The new governor is Halcyon var Enkorth. And he doesn't chase Orlanthi, he just crucifies them.
+
+
+[[return->Gatehouse]]
+
+
+:: distract_Lunars {"position":"500,500","size":"100,100"}
+'Can you tell us how we find this Gimpy's place?', you ask the Lunar innocently, while pushing Chysman back.
+
+The decurian looks unimpressed.
+
+'Follow your nose' he suggests. 'It's where the unwashed tend to congregate.'
+
+[[return->Gatehouse]]
+
+
+:: Ingilli_truth {"position":"1341,91","size":"100,100"}
+revealed_identity: revealed_identity+1
+--
+'Coriales?', the scribe shoots you a look frowning. 'I'll let Ebenara know,  although you understand he's extremely busy so I can't promise an audience today.'
+You catch the eye of one of the fishtraders who a moment later, leaves the courtyard as if remembering something. You wait an hour, watching the scribe come and go, talking to many others in the courtyard. 
+You begin to think you'll never get an audience and begin to feel uneasy admidst so many strangers. Perhaps you should return to [[Gimpy's->Evening in Pavis]] or maybe it's time to remind this scribe you are [[blessed by Zola Fel->Ingilli_rvoice]]?
+
+
+:: Ingilli_rvoice {"position":"1500,98","size":"100,100"}
+revealed_identity: revealed_identity+1
+--
+You look the scribe in the eye and announce yourself as river voice many times blessed by Zola Fel. The scribe looks sceptical but then sees the tattoo displayed on the hand you show him. He gives a cry of surprise and mumbles an apology.
+As he ushers you out of the courtyard [[up some stone steps->Ingilli_meeting]], you notice several of the boatmen staring after you.
+
+
+:: Ingilli_pretend {"position":"1086,131","size":"100,100"}
+The scribe looks unimpressed but promises to let his master know.
+You wait several hours before you overhear some  boatmen saying that Ebernara left over an hour ago on business and won't be back today.
+You give the scribe an evil look as you escape the smell of fish and head back to [[Gimpy's->Evening in Pavis]] for a drink.
+
+
+:: Ingilli_meeting {"position":"1700,98","size":"100,100"}
+ingilli: TRUE
+--
+You are ushered into the familiar rooms of Ebenara. Behind a huge desk, the 'solicitor' looks surprised and angry at the interuption but then stops peering at you carefully.
+'Well, well, I must admit I did not expect, nor if I am honest hope, to see a Coriales for many seasons more.' 
+He looks at his scribe and gestures at you.
+'You never saw this man or heard his name or title - I hope that's clear?'
+The scribe nods, draws the shutters on the windows and leaves the two of you alone.
+
+Ebenara lights candles then settles behind his desk. He looks a little uncomfrotable and nervous.
+
+'So river voice and most blessed of Zola Fel, I take it you are here asking after you [[wife and children]]?'
+
+
+:: wife and children {"position":"1900,98","size":"100,100"}
+Well first of all you have to understand that we have many regular clients who umm, very much value our discretion and efficiency in dealing with all sorts of umm, delicate matters.
+And we always strive to provide the services requested within of course within err the 'laws' of the governor of Pavis. 
+
+So, a few weeks ago, we were approached by a client to retrieve some lost property of his, about which he had received some reliable information. He wished the property to be retrieved quickly and the umm, thieves punished. In the case where retrieval was impossible, he wanted to ensure, umm the property was no longer, let us say, 'functioning'. 
+
+Unfortunately while we were arranging the said repatriation of his property we becsame aware of what we call in the trade a [['conflict of interest'->legalconflict]].
+
+
+:: Xylar’s {"position":"2053,755","size":"100,100"}
+
+
+:: Q_to_Healers {"position":"1820,1031","size":"100,100"}
+gerrin_mod: 5
+asked: false
+count (passage.visits===1): ask_gerrin_count
+asked: count!=ask_gerrin_count
+
+--
+[if _needhealing]
+You  explain your need for healing and she listens patiently but adds that the gifts of the goddess are greatly stretched at this time. We prioritise the poor and needy above those that are servants of violence and bloodshed she observes haughtily. Unless of course they have the means of offering compensation for the lady''s blessings, she smiles. Suddenly you are reminded of your cousin Carrick.
+You assure her you will be generous in thanking the Lady for her healing [[gifts->pavis.healing]] 
+
+[else]
+She is clearly over-worked, you'll have to be quick to learn anything:
+
+Apologise for interrupting her work and [[leave the temple->Evening in Pavis]] 
+
+[if passage.visits<3]
+Ask to speak with [[High Healer Xalendra]]
+
+Ask about the [[Chalana Arroy shrine at Stormhaven->News_of_Shrine]]
+
+Ask is she knows what happened to [[Gerrin Coriales->Pavis_about_Gerrin]]
+
+
+:: News_of_Shrine {"position":"2196,1100","size":"100,100"}
+Stormhaven? That's a name you would be advised not to use now! 
+
+We call it the Healing Waters Shrine - for it was blessed by Zola Fel. And yes it still exists. Priestess Subile and Wenecca serve the Lady there - I believe the new Lunar landowners of Stormhav.. I mean "New Moonhaven" have agreed to support the shrine
+
+{back link}
+
+
+:: High Healer Xalendra {"position":"1698,1098","size":"100,100"}
+Xalendra?! She looks pale and hesitates.
+
+I don't know if she is... here at the moment... 
+
+You impress on here the importance of seeing the Priestess and she eventually relents, guiding you through the cloisters to the elderly priestess's chambers.
+
+Within, the sleeping form of the Antelope tribe nomad seems even more wizened and aged than you recall. She lies amid a pile of animal skins, staring blankly out the only window of the chamber. 
+
+Andrea shakes her head.
+"She is rarely here now - forever she is travelling across Prax - bringing healing she says to those who call for it."
+
+An antelope spirit suddenly manifests by you - fiery eyes staring into yours, you can sense this is no minor spirit and no spirit of healing either.
+"Why do you disturb my Mistress?" it demands of you.
+
+How do you reply?
+
+Give your excuses and quickly [[leave->leaveXalendra]]
+
+My [[name if Cuthbert Coriales, cousin to Healer Carrick Coriales->speakXalendra]]
+
+I come as [[a friend seeking Healer Xalendra's advice->friendXalendra]]
+
+
+:: Pavis_about_Gerrin {"position":"2440,905","size":"100,100"}
+roll: random.d10 + gerrin_mod
+news: gerrinnews[roll]
+ask_gerrin_count: ask_gerrin_count+1
+--
+You ask about what happened to Gerrin.
+
+{news}
+
+{back link}
+
+
+:: pavis.healing {"position":"2006,1101","size":"100,100"}
+cuthbertHealth:"good"
+chysmanHealth:"good"
+karythHealth:"good"
+--
+You and your followers are healed of your wounds and weariness.
+
+You are indeed generous in offering thanks.
+
+{back link}
+
+{note}
+Add loss of pearl, money
+
+
+:: Uleria Temple {"position":"2006,295","size":"100,100"}
+As they say on the streets of Pavis, what happens in the Uleria temple remains in the Uleria temple.
+
+{back to}
+
+[note]
+Other contacts - get news
+Mylandera
+
+
+:: different plan {"position":"793,660","size":"100,100"}
+new_plan: true
+--
+Malan explains how he now thinks the best route is to take the river down south, to the other side of Sun County, and from there take a caravan across Prax, back toward Sartar.
+"However for this we will need a boat and I understand you once performed great services for Zola Fel?"
+"So perhaps it would be wise if you make enquiries at the Temple barge and see if they can provide us with a suitable vessel to take your clan south? Certainly it will be easier and attract less attention than I trying to make any such arrangement.
+I'll leave it for you to make enquiries."
+{back link}
+
+
+:: pavis.planning {"position":"808,536","size":"100,100"}
+My advice to you three would be to keep a low profile as there is a real risk that you may be identified - particularly if you start asking questions about the Clan Coriales. 
+Nevertheless, if you know any you can trust who may have news of your family or clan - or who might help us - then it might be worth tracking them down. I will leave you to decide.
+
+For myself, I am negotiating the purchase of food and clothing for our return to Sartar. But it is not easy as we do not even know how many will be accompanying us. 
+
+I think we should avoid returning by the road we came on. It will attract to much attention and danger in my opinion. I  propose a [[different plan]] but will need your help to make it work. 
+
+They talk a lot these Issaries and you soon lose interest. The rest of the evening you spend with Calops hoping to persuade him to let you to accompany him to Stormhaven tomorrow. But he insists it is best for him go alone. 
+
+You guess he's right - the kind of plan Garth would always come up with. Not Gerrin.
+But then Garth is alive and Gerrin is... what?
+
+Time for another [[drink.->Day in Pavis]]
+
+
+:: Stormbull temple {"position":"1076,903","size":"100,100"}
+
+
+:: do nothing {"position":"1595,291","size":"100,100"}
+You spend a lazy day, talking a little with your followers, eating and sleeping.
+
+Why not - didn't Malan tell you to not draw attention to yourself?
+
+Now it's [[getting late->Evening in Pavis]] though and you're feeling bored.
+
+
+:: Evening in Pavis {"position":"2103,499","size":"100,100"}
+It's evening. 
+
+Gimpy's is getting crowded, the beer flowing.
+
+What to do?
+
+[[Lie low]] and don't draw attention to yourselves.
+Ask around Gimpy's about any [[recent news]].
+Everyone needs a bit of fun - start a [[drinking game]] with Chysman and Karyth.
+Gimpy's is boring - go check out [[Xylar’s]] 
+Go on a [[tavern->Taverns]] crawl with your followers - information gathering of course!
+It's been a long time - tell your followers you need some air and visit the [[Uleria Temple]]
+[if passage.visits>1]
+Time for [[bed->Day in Pavis]]!
+
+
+:: drinking game {"position":"2383,368","size":"100,100"}
+revealed_identity: revealed_identity+2
+
+[[Day in Pavis]]
+
+
+:: Lie low {"position":"2343,476","size":"100,100"}
+[[Day in Pavis]]
+
+
+:: recent news {"position":"2343,585","size":"100,100"}
+revealed_identity: revealed_identity+1 
+gerrin_mod: 1
+clan_mod: 1
+--
+But what should you be asking about?
+About the [[clan and Stormhaven->Pavis_about_clan]]?
+About what happened to [[Gerrin->Pavis_about_Gerrin]]?
+Or just go to [[sleep->Day in Pavis]]
+
+
+:: Pavis_about_clan {"position":"2500,680","size":"100,100"}
+roll: random.d10 + clan_mod
+news: clannews[roll]
+
+--
+You ask around about any news to do with the Coriales clan.
+
+{news}
+
+{back link}
+
+
+:: Humakti temple {"position":"1596,898","size":"100,100"}
+A tall humakti approaches - Cathiades
+
+Conadren - fought for LMhy
+
+Krogar gone
+
+
+:: enterLightTemple {"position":"688,1061","size":"100,100"}
+Double-click this passage to edit it.
+
+
+:: joinWorship {"position":"1331,1053","size":"100,100"}
+sbull: sbull-5
+orlanth: orlanth-5
+zfel: zfel+20
+templeBarge: true
+--
+You join a crowd of worshippers - men, women, newtlings, fish and things you donnot recognize. All brought together to worship the river on which their lives depend.
+You feel a strange longing for once to live by its riverbanks - thoughts of Sartar leave you and for a moment you have peace.
+
+After the worship is complete you request an [[audience with the priest of the Temple Barge->bargeInfo]]
+
+
+:: refuseWorshoip {"position":"1481,1053","size":"100,100"}
+zfel: zfel - 5
+--
+If you have not come to worship then why are you here? ask the puzzled newtlings. You sense dissapointment in their voices and in the looks of those around them.
+
+Have you forgotten you were once a River voice? Have you forgotten you once quested for Zola Fel's blessings?
+
+You cannot stay - not while they join together in worship of the river that once sustained you all.  
+
+You take your leave and return to [[Gimpy's-> Evening in Pavis]].
+
+
+:: legalconflict {"position":"2076,123","size":"100,100"}
+He glances at you then away.
+
+Fortunately [[the person->celestInfo]] who made us aware of the conflict of interest also kindly offered us a means of resolving the conflict by supervising the hiring of [[suitable agents->agents]] and acquiring the services of a reliable [[native guide->guide]] to help track down the missing property. 
+
+And umm, I'm pleased to say that  the matter has been satisfactorily resolved. Sadly the property couldn't be returned to our original client, but he has received assurance that the said property has been buried in an appropriate umm, err [[tomb]].
+
+I hope ou agree we tried our best to find a resolution to the satisfcation of our clients?
+
+Now, if you excuse me, I do have a number of pressing business matters that need attending to. My clerk will show you [[out->ingilliLeave]]
+
+
+:: celestInfo {"position":"2365,1","size":"100,100"}
+Oh - umm she, I mean I understand they were representing your interests?
+
+I'm afraid as the person is also a client of ours I can't give out any further information or any contact details. Really I can't. Really I  daren't.
+
+{back link}
+
+
+:: agents {"position":"2360,120","size":"100,100"}
+Oh you know the kind - erm bounty hunters, sell swords that sort. I think we recruited three of them - all foreigners. A Grazelander, a Lunar and some petty trader from the Holy Country if I remember right. And of course an umm, agent of our client travelled with them.
+
+Umm, I haven't seen any of them since their commisioning. 
+
+
+{back link}
+
+
+:: guide {"position":"2163,0","size":"100,100"}
+THe guide? Oh he's rather special. A sable rideer who goes by the name Belseri - most 'gifted' they say.
+
+He can often be found at the market - although I haven't seen him of late.
+
+{back link}
+
+
+:: tomb {"position":"2353,248","size":"100,100"}
+Look - I don't know what happened exactly - but that was the message - that our client's wi... umm property was buried with Ty Kora Tek - I mean that's a tomb if anything is.
+
+No, I'm afraid I don't know - out in the Wastes somewhere as I understand - that's why we hired a guide.
+
+{back link}
+
+
+:: ingilliLeave {"position":"2210,266","size":"100,100"}
+You're sure there's a lot more questions someone like Garth would have asked and a lot more information he might have got out of the officious lawyer, but you're not Garth. And you're not sure you want to threaten someone who seems to think he has done you a favour.
+
+You take your leave and head [[back to Gimpy's->Evening in Pavis]]
+
+
+:: speakXalendra {"position":"1708,1300","size":"100,100"}
+The spirit gives a braying laugh.
+
+"Cousin to Carrick Coriales- oh what a joy! Are you the pretty one, the lost one, the foolhardy one, or the dead one?  
+
+Oh well, if you've news of Carrick Coriales then I am sure my mistress will want to hear. Wait and be patient."
+
+You do as it says, glad no longer to be holding its gaze. Andrea leaves you and returns to her work. You eventually doze as time passes and awake to wonder if you should leave. Then the body of the old women gives a twitch and a voice speaks to you without sound.
+
+"Cuthbert Coriales is it? I didn't expect to see you for many a season. Sartar not to your liking? Or are you troubled by dreams? Dreams of the earth is it?" 
+
+The voice laughs. 
+
+"Of course - it must be so. How could you not dream, when husband to one who sleeps the abandoned sleep. For just like all the Earth's husbands and lovers, you abandoned her - telling yourself some excuse that you do it for her, not for youself. Well now she calls you back and you cannot help but answer. 
+
+You think you come to rescue them? I expect you come just to abandon them once again. The abandoned Earth demands sacrifice - but the nature of the sacrifice is to be decided. Ask the desert guide - he knows."
+
+Her eyes roll backwards then the voice comes again.
+
+"Carrick Coriales? I need no news. He is still a fool if a slightly more accomplished one. Perhaps Ferace will guide him to enlightenment although he is as likley to stumble over a cliff. I will visit him one day - you can tell him that if you see him. That should put the fear of the gods into him! 
+
+Now go, I have more important places to be than bandying words with you, warrior. Just remember, sometimes we must play a part even if that part is not the one we desire."
+
+You take your [[leave->leaveXalendra]] - glad to be freed from the voice of the nomad Shaman and pitying Carrick for spending so long in her thrall.
+
+
+:: friendXalendra {"position":"1854,1198","size":"100,100"}
+"A friend?  My mistress does not have 'friends'! 
+
+She is not to be disturbed by such trifling interuptions - I suggest you leave before I show you what the 'friendship' of my Lady feels like."
+
+It stares closely into your eyes, and you sense it beginning to engage with your own spirit.
+
+Do you [[leave->leaveXalendra]] or say you are the [[cousin of Carrick Coriales->speakXalendra]]
+
+
+:: leaveXalendra {"position":"1999,1295","size":"100,100"}
+You think Andrea for her help, but feeling shaky after your encounter with the ancient Antelope rider and her Fetch you leave the temple grounds quickly and seek solace [[back at Gimpys->Evening in Pavis]]
+
+
+:: bargeInfo {"position":"1395,1175","size":"100,100"}
+You speak with the priest Ch'en - you remember him from your quest to gain Zola Fel's blessing for the healing shrine at Stormhaven. You always found him rather distant and little interested in matters beyond that of the river.
+
+if[zfel>20]
+He greets you as a river voice but and asks what brings you to worship of the river after "so long"?
+
+else
+He greets you coldly and asks if you have not come to worship why are you here?
+
+Ask for the services of a [[riverboat and crew->riverboat]]
+
+Ask about the fate of your [[clan and Stormhaven->bargeClan]]
+
+if [xalendra]
+Ask about your dreams and the abandoned earth.
+
+Take your leave and return to [[Gimpy's->Evening in Pavis]]
+
+
+:: riverboat {"position":"1269,1358","size":"100,100"}
+Double-click this passage to edit it.
+
+
+:: bargeClan {"position":"1419,1356","size":"100,100"}
+Double-click this passage to edit it.
+
+
+::  Evening in Pavis {"position":"1515,1203","size":"100,100"}
+Double-click this passage to edit it.
+
+
