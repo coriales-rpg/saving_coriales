@@ -5,6 +5,7 @@
         }
     ],
     "settings": {
-        "twee3LanguageTools.storyformat.current": "chapbook-1"
+        "twee3LanguageTools.storyformat.current": "chapbook-1",
+        "twee3LanguageTools.passage.list": true
     }
 }
