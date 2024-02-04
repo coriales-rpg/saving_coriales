@@ -29,7 +29,7 @@ jobs:
         run: |
           go get github.com/tmedwards/tweego
           export PATH=$PATH:$(go env GOPATH)/bin
-          npm run build-site
+          tweego /twee_code/Welcome_to_Pavis.twee -o dist/index.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2
