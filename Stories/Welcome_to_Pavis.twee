@@ -107,21 +107,6 @@ revealed_identity: 0
 --
 
 
-:: Arrival {"position":"625,400","size":"100,100"}
-arriveDoy: doy
---
-You join the queue of people seeking entry by the gates. There's no shortage of Sartarite refugees among them, few of which are allowed entry. You clutch your employment paper from Malan and hope they will be enought to gain enty without too many questions.
-
-The Lunar guards seem even slower and more petty than usual. Their sense of invulnerability even greater than usual.
-
-"From Sartar are you?" asks the Decurian, chuckling. ''I hear it's a bit cold out there. Although if you've come looking for the winds you need to keep on going east. Perhaps the other side of the Wastes you'll find you gods still blowing.'
-
-You see Chysman bristling with a glint in his eye as he placed a hand on his hilt. Karyth shoots you a warning glance.
-
-'You got something to say about that?' asks the lunar.
-
-Should you [[call Chysman to order sharply->rebuke_Chysman]] before he does something rash, [[distract these Lunars->distract_Lunars]] or [[trust the lad->trust_Chysman]] and see what happens?
-
 
 :: Date {"position":"200,148","size":"100,100"}
 numseason:  Math.floor(doy/56)
@@ -195,6 +180,68 @@ see: https://intfiction.org/t/chapbook-modal-text-window-strategy/52457/3
 see: https://intfiction.org/t/chapbook-modal-text-window-strategy/52457/3
 
 
+:: Arrival {"position":"625,400","size":"100,100"}
+arriveDoy: doy
+--
+You join the queue of people seeking entry by the gates. There's no shortage of Sartarite refugees among them, few of which are allowed entry. You clutch your employment paper from Malan and hope they will be enought to gain enty without too many questions.
+
+The Lunar guards seem even slower and more petty than usual. Their sense of invulnerability even greater than usual.
+
+"From Sartar are you?" asks the Decurian, chuckling. ''I hear it's a bit cold out there. Although if you've come looking for the winds you need to keep on going east. Perhaps the other side of the Wastes you'll find you gods still blowing.'
+
+You see Chysman bristling with a glint in his eye as he placed a hand on his hilt. Karyth shoots you a warning glance.
+
+'You got something to say about that?' asks the lunar.
+
+Should you [[call Chysman to order sharply->rebuke_Chysman]] before he does something rash, [[distract these Lunars->distract_Lunars]] or [[trust the lad->trust_Chysman]] and see what happens?
+
+
+:: rebuke_Chysman {"position":"500,325","size":"100,100"}
+chysman: chysman-5
+--
+You gruffly tell Chysman to shut it.
+
+He gives you an angry look but says nothing. The lunar laughs.
+
+'Yes I'd do what he says lad or you'll be all joining all those the new governor Halcyon var Enkorth has been crucifying.'
+
+You recall all the times your brothers tried to keep you in line and wonder at how things have changed.
+
+[[return->Gatehouse]]
+
+
+:: trust_Chysman {"position":"500,400","size":"100,100"}
+revealed_identity: revealed_identity+1
+karyth:karyth-5
+--
+You ignore Karyth's warning glance.
+
+'Sor-Eel must have time on his hands now he doesn't have to spend his days chasing the worshippers of Orlanth' oberved Chysman.
+
+The Lunars smile.
+
+'It's not Sor-Eel any longer. The new governor is Halcyon var Enkorth. And he doesn't chase Orlanthi, he just crucifies them.
+
+
+[[return->Gatehouse]]
+
+
+:: distract_Lunars {"position":"500,500","size":"100,100"}
+'Can you tell us how we find this Gimpy's place?', you ask the Lunar innocently, while pushing Chysman back.
+
+The decurian looks unimpressed.
+
+'Follow your nose' he suggests. 'It's where the unwashed tend to congregate.'
+
+[[return->Gatehouse]]
+
+
+:: Gatehouse {"position":"600,600","size":"100,100"}
+You all keep your own council as complete the formalities at the gates. Eventually you pass through the gates of New Pavis and enter its familiar streets filled with so many memories.
+
+You set off to [[Gimpy's->Arrival at Gimpy's]] where you agreed to meet with your travelling companions.
+
+
 :: Arrival at Gimpy's {"position":"798,396","size":"100,100"}
 Gimpy's seems much quieter than you remember. As you look round for a familiar face you see no sign of Krogar, Celeste or any other of the Frees. No sign of once familiar faces of Grahaem Finehand or ??? 
 You notice how everyone looks up at your arrival but there is no sign of any recognition or friendliness in the stares.
@@ -217,12 +264,6 @@ Also, a new governor named Halcyon var Enkorth was appointed but a season ago. M
 Nevertheless, those who might have once openly challenged the authority of the Empire are now scarce indeed, particularly now Orlanth and the Earth sleeps. The air temple was empty when I visited and even here at Gimpy's there is no open challenge to the governor's authority.
 
 We must use our time here in Pavis [[carefully->pavis.planning]].
-
-
-:: Gatehouse {"position":"600,600","size":"100,100"}
-You all keep your own council as complete the formalities at the gates. Eventually you pass through the gates of New Pavis and enter its familiar streets filled with so many memories.
-
-You set off to [[Gimpy's->Arrival at Gimpy's]] where you agreed to meet with your travelling companions.
 
 
 :: Day in Pavis {"position":"1305,500","size":"100,100"}
@@ -284,167 +325,6 @@ After many long hours of waiting amid the sick and dying, asking after Andrea, y
 You offer prayers to Chalana Arroy but it is so busy and overcrowded you soon {back link, label:"depart."}
 
 
-:: Knowledge temple {"position":"1230,898","size":"100,100"}
-Memories
-Jakul or someone recognizes
-Cardomides
-
-
-:: Ingillis {"position":"1300,298","size":"100,100"}
-It takes you a fair while, but eventually you find the tall, familiar  building where the Ingillis carry out their business. The courtyard is bustling and full of fish traders, merchants and boatman.
-Eventually you get hold of a scribe and ask after  the Ingilli spokeman, Genara Eberhel, who you've had dealings with before. 
-Do you give your [[real name->Ingilli_truth]], announce you a [[river voice blessed by Zola Fel->Ingilli_rvoice]] or pretend to be a [[mercenary looking for work->Ingilli_pretend]]?
-
-
-:: Temple barge {"position":"1398,895","size":"100,100"}
---
-You show your tattoed hand to those at the entrance to the barge and hear excited whispers as they step aside to allow entry.
-
-Within a newtling bows and welcomes you as a River voice. 
-
-'Will you join us in our worship?'
-
-Will you [[join in the worship to Zola Fel->joinWorship]]?
-
-Or explain [[you only worship the gods of storm now->refuseWorshoip]]
-
-
-:: Light temple {"position":"695,901","size":"100,100"}
-You reach Rich Hill where you're subject to many suspicious glances as you approach the gleaming golden dome of the temple. Wasn't it from a house near here that you rescued your Ethwynn and Ethwainn?
-As you climb the steps to the Temple beneath the wary regard of the templars above, Chysman grabs your shoulder asking 'What are we doing here?'
-
-What are you doing here?
-"I don't know anymore - just a bad idea, let's get [[back to Gimpy's->Day in Pavis]]"
-"Trust me, I know what I'm doing" you say as you [[carry on to the temple->enterLightTemple]]
-
-
-:: Air temple {"position":"900,903","size":"100,100"}
-Abandoned
-
-
-:: Coriales house {"position":"1728,556","size":"100,100"}
-
-
-:: Lunar Interest 1 {"position":"698,1298","size":"100,100"}
-
-
-:: Lunar Interest 2 {"position":"898,1298","size":"100,100"}
-
-
-:: The Market {"position":"1005,298","size":"100,100"}
-
-
-:: Speak to Malan {"position":"200,895","size":"100,100"}
-
-
-:: Speak to Calops {"position":"400,900","size":"100,100"}
-
-
-:: Bounty Hunters {"position":"1098,1298","size":"100,100"}
-
-
-:: Celeste {"position":"954,1416","size":"100,100"}
-Disguise as waitress - attractive but
-
-
-I hope you do soldier - because the last time you were in Pavis you bedded me in the stables.
-
-
-Well Cuthbert Coriales, if you think dressing up as a mercenary thug and claiming to be a sell sword fleeing chilly Sartar is enough to pass unoticed,  I beg to differ.
-
-I guess you think you've been discrete these past {daysInPavis} days and by the standards of your family I'd  agree. But a handsome, axe wielding Sartarite with a distinctive scar down his face doesn't pass unoticed. And there's enough people who remember the  much talked about antics of your family to put two and two together and get a big fat bounty! I take it you know there's a 1000 L bounty on your head and that of each of you brothers and cousins?
-
-
-:: Taverns {"position":"2236,765","size":"100,100"}
-
-
-:: rebuke_Chysman {"position":"500,325","size":"100,100"}
-chysman: chysman-5
---
-You gruffly tell Chysman to shut it.
-
-He gives you an angry look but says nothing. The lunar laughs.
-
-'Yes I'd do what he says lad or you'll be all joining all those the new governor Halcyon var Enkorth has been crucifying.'
-
-You recall all the times your brothers tried to keep you in line and wonder at how things have changed.
-
-[[return->Gatehouse]]
-
-
-:: trust_Chysman {"position":"500,400","size":"100,100"}
-revealed_identity: revealed_identity+1
-karyth:karyth-5
---
-You ignore Karyth's warning glance.
-
-'Sor-Eel must have time on his hands now he doesn't have to spend his days chasing the worshippers of Orlanth' oberved Chysman.
-
-The Lunars smile.
-
-'It's not Sor-Eel any longer. The new governor is Halcyon var Enkorth. And he doesn't chase Orlanthi, he just crucifies them.
-
-
-[[return->Gatehouse]]
-
-
-:: distract_Lunars {"position":"500,500","size":"100,100"}
-'Can you tell us how we find this Gimpy's place?', you ask the Lunar innocently, while pushing Chysman back.
-
-The decurian looks unimpressed.
-
-'Follow your nose' he suggests. 'It's where the unwashed tend to congregate.'
-
-[[return->Gatehouse]]
-
-
-:: Ingilli_truth {"position":"1341,91","size":"100,100"}
-revealed_identity: revealed_identity+1
---
-'Coriales?', the scribe shoots you a look frowning. 'I'll let Ebenara know,  although you understand he's extremely busy so I can't promise an audience today.'
-You catch the eye of one of the fishtraders who a moment later, leaves the courtyard as if remembering something. You wait an hour, watching the scribe come and go, talking to many others in the courtyard. 
-You begin to think you'll never get an audience and begin to feel uneasy admidst so many strangers. Perhaps you should return to [[Gimpy's->Evening in Pavis]] or maybe it's time to remind this scribe you are [[blessed by Zola Fel->Ingilli_rvoice]]?
-
-
-:: Ingilli_rvoice {"position":"1500,98","size":"100,100"}
-revealed_identity: revealed_identity+1
---
-You look the scribe in the eye and announce yourself as river voice many times blessed by Zola Fel. The scribe looks sceptical but then sees the tattoo displayed on the hand you show him. He gives a cry of surprise and mumbles an apology.
-As he ushers you out of the courtyard [[up some stone steps->Ingilli_meeting]], you notice several of the boatmen staring after you.
-
-
-:: Ingilli_pretend {"position":"1086,131","size":"100,100"}
-The scribe looks unimpressed but promises to let his master know.
-You wait several hours before you overhear some  boatmen saying that Ebernara left over an hour ago on business and won't be back today.
-You give the scribe an evil look as you escape the smell of fish and head back to [[Gimpy's->Evening in Pavis]] for a drink.
-
-
-:: Ingilli_meeting {"position":"1700,98","size":"100,100"}
-ingilli: TRUE
---
-You are ushered into the familiar rooms of Ebenara. Behind a huge desk, the 'solicitor' looks surprised and angry at the interuption but then stops peering at you carefully.
-'Well, well, I must admit I did not expect, nor if I am honest hope, to see a Coriales for many seasons more.' 
-He looks at his scribe and gestures at you.
-'You never saw this man or heard his name or title - I hope that's clear?'
-The scribe nods, draws the shutters on the windows and leaves the two of you alone.
-
-Ebenara lights candles then settles behind his desk. He looks a little uncomfrotable and nervous.
-
-'So river voice and most blessed of Zola Fel, I take it you are here asking after you [[wife and children]]?'
-
-
-:: wife and children {"position":"1900,98","size":"100,100"}
-Well first of all you have to understand that we have many regular clients who umm, very much value our discretion and efficiency in dealing with all sorts of umm, delicate matters.
-And we always strive to provide the services requested within of course within err the 'laws' of the governor of Pavis. 
-
-So, a few weeks ago, we were approached by a client to retrieve some lost property of his, about which he had received some reliable information. He wished the property to be retrieved quickly and the umm, thieves punished. In the case where retrieval was impossible, he wanted to ensure, umm the property was no longer, let us say, 'functioning'. 
-
-Unfortunately while we were arranging the said repatriation of his property we becsame aware of what we call in the trade a [['conflict of interest'->legalconflict]].
-
-
-:: Xylar’s {"position":"2053,755","size":"100,100"}
-
-
 :: Q_to_Healers {"position":"1820,1031","size":"100,100"}
 gerrin_mod: 5
 asked: false
@@ -501,18 +381,6 @@ My [[name if Cuthbert Coriales, cousin to Healer Carrick Coriales->speakXalendra
 I come as [[a friend seeking Healer Xalendra's advice->friendXalendra]]
 
 
-:: Pavis_about_Gerrin {"position":"2440,905","size":"100,100"}
-roll: random.d10 + gerrin_mod
-news: gerrinnews[roll]
-ask_gerrin_count: ask_gerrin_count+1
---
-You ask about what happened to Gerrin.
-
-{news}
-
-{back link}
-
-
 :: pavis.healing {"position":"2006,1101","size":"100,100"}
 cuthbertHealth:"good"
 chysmanHealth:"good"
@@ -526,6 +394,280 @@ You are indeed generous in offering thanks.
 
 {note}
 Add loss of pearl, money
+
+:: speakXalendra {"position":"1708,1300","size":"100,100"}
+The spirit gives a braying laugh.
+
+"Cousin to Carrick Coriales- oh what a joy! Are you the pretty one, the lost one, the foolhardy one, or the dead one?  
+
+Oh well, if you've news of Carrick Coriales then I am sure my mistress will want to hear. Wait and be patient."
+
+You do as it says, glad no longer to be holding its gaze. Andrea leaves you and returns to her work. You eventually doze as time passes and awake to wonder if you should leave. Then the body of the old women gives a twitch and a voice speaks to you without sound.
+
+"Cuthbert Coriales is it? I didn't expect to see you for many a season. Sartar not to your liking? Or are you troubled by dreams? Dreams of the earth is it?" 
+
+The voice laughs. 
+
+"Of course - it must be so. How could you not dream, when husband to one who sleeps the abandoned sleep. For just like all the Earth's husbands and lovers, you abandoned her - telling yourself some excuse that you do it for her, not for youself. Well now she calls you back and you cannot help but answer. 
+
+You think you come to rescue them? I expect you come just to abandon them once again. The abandoned Earth demands sacrifice - but the nature of the sacrifice is to be decided. Ask the desert guide - he knows."
+
+Her eyes roll backwards then the voice comes again.
+
+"Carrick Coriales? I need no news. He is still a fool if a slightly more accomplished one. Perhaps Ferace will guide him to enlightenment although he is as likley to stumble over a cliff. I will visit him one day - you can tell him that if you see him. That should put the fear of the gods into him! 
+
+Now go, I have more important places to be than bandying words with you, warrior. Just remember, sometimes we must play a part even if that part is not the one we desire."
+
+You take your [[leave->leaveXalendra]] - glad to be freed from the voice of the nomad Shaman and pitying Carrick for spending so long in her thrall.
+
+
+:: friendXalendra {"position":"1854,1198","size":"100,100"}
+"A friend?  My mistress does not have 'friends'! 
+
+She is not to be disturbed by such trifling interuptions - I suggest you leave before I show you what the 'friendship' of my Lady feels like."
+
+It stares closely into your eyes, and you sense it beginning to engage with your own spirit.
+
+Do you [[leave->leaveXalendra]] or say you are the [[cousin of Carrick Coriales->speakXalendra]]
+
+
+:: leaveXalendra {"position":"1999,1295","size":"100,100"}
+You think Andrea for her help, but feeling shaky after your encounter with the ancient Antelope rider and her Fetch you leave the temple grounds quickly and seek solace [[back at Gimpys->Evening in Pavis]]
+
+
+:: Ingillis {"position":"1300,298","size":"100,100"}
+It takes you a fair while, but eventually you find the tall, familiar  building where the Ingillis carry out their business. The courtyard is bustling and full of fish traders, merchants and boatman.
+Eventually you get hold of a scribe and ask after  the Ingilli spokeman, Genara Eberhel, who you've had dealings with before. 
+Do you give your [[real name->Ingilli_truth]], announce you a [[river voice blessed by Zola Fel->Ingilli_rvoice]] or pretend to be a [[mercenary looking for work->Ingilli_pretend]]?
+
+:: Ingilli_truth {"position":"1341,91","size":"100,100"}
+revealed_identity: revealed_identity+1
+--
+'Coriales?', the scribe shoots you a look frowning. 'I'll let Ebenara know,  although you understand he's extremely busy so I can't promise an audience today.'
+You catch the eye of one of the fishtraders who a moment later, leaves the courtyard as if remembering something. You wait an hour, watching the scribe come and go, talking to many others in the courtyard. 
+You begin to think you'll never get an audience and begin to feel uneasy admidst so many strangers. Perhaps you should return to [[Gimpy's->Evening in Pavis]] or maybe it's time to remind this scribe you are [[blessed by Zola Fel->Ingilli_rvoice]]?
+
+
+:: Ingilli_rvoice {"position":"1500,98","size":"100,100"}
+revealed_identity: revealed_identity+1
+--
+You look the scribe in the eye and announce yourself as river voice many times blessed by Zola Fel. The scribe looks sceptical but then sees the tattoo displayed on the hand you show him. He gives a cry of surprise and mumbles an apology.
+As he ushers you out of the courtyard [[up some stone steps->Ingilli_meeting]], you notice several of the boatmen staring after you.
+
+
+:: Ingilli_pretend {"position":"1086,131","size":"100,100"}
+The scribe looks unimpressed but promises to let his master know.
+You wait several hours before you overhear some  boatmen saying that Ebernara left over an hour ago on business and won't be back today.
+You give the scribe an evil look as you escape the smell of fish and head back to [[Gimpy's->Evening in Pavis]] for a drink.
+
+
+:: Ingilli_meeting {"position":"1700,98","size":"100,100"}
+ingilli: TRUE
+--
+You are ushered into the familiar rooms of Ebenara. Behind a huge desk, the 'solicitor' looks surprised and angry at the interuption but then stops peering at you carefully.
+'Well, well, I must admit I did not expect, nor if I am honest hope, to see a Coriales for many seasons more.' 
+He looks at his scribe and gestures at you.
+'You never saw this man or heard his name or title - I hope that's clear?'
+The scribe nods, draws the shutters on the windows and leaves the two of you alone.
+
+Ebenara lights candles then settles behind his desk. He looks a little uncomfrotable and nervous.
+
+'So river voice and most blessed of Zola Fel, I take it you are here asking after you [[wife and children]]?'
+
+
+:: wife and children {"position":"1900,98","size":"100,100"}
+Well first of all you have to understand that we have many regular clients who umm, very much value our discretion and efficiency in dealing with all sorts of umm, delicate matters.
+And we always strive to provide the services requested within of course within err the 'laws' of the governor of Pavis. 
+
+So, a few weeks ago, we were approached by a client to retrieve some lost property of his, about which he had received some reliable information. He wished the property to be retrieved quickly and the umm, thieves punished. In the case where retrieval was impossible, he wanted to ensure, umm the property was no longer, let us say, 'functioning'. 
+
+Unfortunately while we were arranging the said repatriation of his property we becsame aware of what we call in the trade a [['conflict of interest'->legalconflict]].
+
+
+:: legalconflict {"position":"2076,123","size":"100,100"}
+He glances at you then away.
+
+Fortunately [[the person->celestInfo]] who made us aware of the conflict of interest also kindly offered us a means of resolving the conflict by supervising the hiring of [[suitable agents->agents]] and acquiring the services of a reliable [[native guide->guide]] to help track down the missing property. 
+
+And umm, I'm pleased to say that  the matter has been satisfactorily resolved. Sadly the property couldn't be returned to our original client, but he has received assurance that the said property has been buried in an appropriate umm, err [[tomb]].
+
+I hope ou agree we tried our best to find a resolution to the satisfcation of our clients?
+
+Now, if you excuse me, I do have a number of pressing business matters that need attending to. My clerk will show you [[out->ingilliLeave]]
+
+
+:: celestInfo {"position":"2365,1","size":"100,100"}
+Oh - umm she, I mean I understand they were representing your interests?
+
+I'm afraid as the person is also a client of ours I can't give out any further information or any contact details. Really I can't. Really I  daren't.
+
+{back link}
+
+
+:: agents {"position":"2360,120","size":"100,100"}
+Oh you know the kind - erm bounty hunters, sell swords that sort. I think we recruited three of them - all foreigners. A Grazelander, a Lunar and some petty trader from the Holy Country if I remember right. And of course an umm, agent of our client travelled with them.
+
+Umm, I haven't seen any of them since their commisioning. 
+
+
+{back link}
+
+
+:: guide {"position":"2163,0","size":"100,100"}
+THe guide? Oh he's rather special. A sable rideer who goes by the name Belseri - most 'gifted' they say.
+
+He can often be found at the market - although I haven't seen him of late.
+
+{back link}
+
+
+:: tomb {"position":"2353,248","size":"100,100"}
+Look - I don't know what happened exactly - but that was the message - that our client's wi... umm property was buried with Ty Kora Tek - I mean that's a tomb if anything is.
+
+No, I'm afraid I don't know - out in the Wastes somewhere as I understand - that's why we hired a guide.
+
+{back link}
+
+
+:: ingilliLeave {"position":"2210,266","size":"100,100"}
+You're sure there's a lot more questions someone like Garth would have asked and a lot more information he might have got out of the officious lawyer, but you're not Garth. And you're not sure you want to threaten someone who seems to think he has done you a favour.
+
+You take your leave and head [[back to Gimpy's->Evening in Pavis]]
+
+
+:: Temple barge {"position":"1398,895","size":"100,100"}
+--
+You show your tattoed hand to those at the entrance to the barge and hear excited whispers as they step aside to allow entry.
+
+Within a newtling bows and welcomes you as a River voice. 
+
+'Will you join us in our worship?'
+
+Will you [[join in the worship to Zola Fel->joinWorship]]?
+
+Or explain [[you only worship the gods of storm now->refuseWorshoip]]
+
+:: joinWorship {"position":"1331,1053","size":"100,100"}
+sbull: sbull-5
+orlanth: orlanth-5
+zfel: zfel+20
+templeBarge: true
+--
+You join a crowd of worshippers - men, women, newtlings, fish and things you donnot recognize. All brought together to worship the river on which their lives depend.
+You feel a strange longing for once to live by its riverbanks - thoughts of Sartar leave you and for a moment you have peace.
+
+After the worship is complete you request an [[audience with the priest of the Temple Barge->bargeInfo]]
+
+
+:: refuseWorshoip {"position":"1481,1053","size":"100,100"}
+zfel: zfel - 5
+--
+If you have not come to worship then why are you here? ask the puzzled newtlings. You sense dissapointment in their voices and in the looks of those around them.
+
+Have you forgotten you were once a River voice? Have you forgotten you once quested for Zola Fel's blessings?
+
+You cannot stay - not while they join together in worship of the river that once sustained you all.  
+
+You take your leave and return to [[Gimpy's->Evening in Pavis]].
+
+
+:: bargeInfo {"position":"1395,1175","size":"100,100"}
+You speak with the priest Ch'en - you remember him from your quest to gain Zola Fel's blessing for the healing shrine at Stormhaven. You always found him rather distant and little interested in matters beyond that of the river.
+
+if[zfel>20]
+He greets you as a river voice but and asks what brings you to worship of the river after "so long"?
+
+else
+He greets you coldly and asks if you have not come to worship why are you here?
+
+Ask for the services of a [[riverboat and crew->riverboat]]
+
+Ask about the fate of your [[clan and Stormhaven->bargeClan]]
+
+if [xalendra]
+Ask about your dreams and the abandoned earth.
+
+Take your leave and return to [[Gimpy's->Evening in Pavis]]
+
+
+:: riverboat {"position":"1269,1358","size":"100,100"}
+Double-click this passage to edit it.
+
+
+:: bargeClan {"position":"1419,1356","size":"100,100"}
+Double-click this passage to edit it.
+
+
+
+:: Light temple {"position":"695,901","size":"100,100"}
+You reach Rich Hill where you're subject to many suspicious glances as you approach the gleaming golden dome of the temple. Wasn't it from a house near here that you rescued your Ethwynn and Ethwainn?
+As you climb the steps to the Temple beneath the wary regard of the templars above, Chysman grabs your shoulder asking 'What are we doing here?'
+
+What are you doing here?
+"I don't know anymore - just a bad idea, let's get [[back to Gimpy's->Day in Pavis]]"
+"Trust me, I know what I'm doing" you say as you [[carry on to the temple->enterLightTemple]]
+
+
+:: Air temple {"position":"900,903","size":"100,100"}
+Abandoned
+
+
+:: Knowledge temple {"position":"1230,898","size":"100,100"}
+Memories
+Jakul or someone recognizes
+Cardomides
+
+
+:: Coriales house {"position":"1728,556","size":"100,100"}
+
+
+:: Lunar Interest 1 {"position":"698,1298","size":"100,100"}
+
+
+:: Lunar Interest 2 {"position":"898,1298","size":"100,100"}
+
+
+:: The Market {"position":"1005,298","size":"100,100"}
+
+
+:: Speak to Malan {"position":"200,895","size":"100,100"}
+
+
+:: Speak to Calops {"position":"400,900","size":"100,100"}
+
+
+:: Bounty Hunters {"position":"1098,1298","size":"100,100"}
+
+
+:: Celeste {"position":"954,1416","size":"100,100"}
+Disguise as waitress - attractive but
+
+
+I hope you do soldier - because the last time you were in Pavis you bedded me in the stables.
+
+
+Well Cuthbert Coriales, if you think dressing up as a mercenary thug and claiming to be a sell sword fleeing chilly Sartar is enough to pass unoticed,  I beg to differ.
+
+I guess you think you've been discrete these past {daysInPavis} days and by the standards of your family I'd  agree. But a handsome, axe wielding Sartarite with a distinctive scar down his face doesn't pass unoticed. And there's enough people who remember the  much talked about antics of your family to put two and two together and get a big fat bounty! I take it you know there's a 1000 L bounty on your head and that of each of you brothers and cousins?
+
+
+:: Taverns {"position":"2236,765","size":"100,100"}
+
+
+
+:: Xylar’s {"position":"2053,755","size":"100,100"}
+
+
+:: Pavis_about_Gerrin {"position":"2440,905","size":"100,100"}
+roll: random.d10 + gerrin_mod
+news: gerrinnews[roll]
+ask_gerrin_count: ask_gerrin_count+1
+--
+You ask about what happened to Gerrin.
+
+{news}
+
+{back link}
 
 
 :: Uleria Temple {"position":"2006,295","size":"100,100"}
@@ -636,150 +778,5 @@ Krogar gone
 :: enterLightTemple {"position":"688,1061","size":"100,100"}
 Double-click this passage to edit it.
 
-
-:: joinWorship {"position":"1331,1053","size":"100,100"}
-sbull: sbull-5
-orlanth: orlanth-5
-zfel: zfel+20
-templeBarge: true
---
-You join a crowd of worshippers - men, women, newtlings, fish and things you donnot recognize. All brought together to worship the river on which their lives depend.
-You feel a strange longing for once to live by its riverbanks - thoughts of Sartar leave you and for a moment you have peace.
-
-After the worship is complete you request an [[audience with the priest of the Temple Barge->bargeInfo]]
-
-
-:: refuseWorshoip {"position":"1481,1053","size":"100,100"}
-zfel: zfel - 5
---
-If you have not come to worship then why are you here? ask the puzzled newtlings. You sense dissapointment in their voices and in the looks of those around them.
-
-Have you forgotten you were once a River voice? Have you forgotten you once quested for Zola Fel's blessings?
-
-You cannot stay - not while they join together in worship of the river that once sustained you all.  
-
-You take your leave and return to [[Gimpy's-> Evening in Pavis]].
-
-
-:: legalconflict {"position":"2076,123","size":"100,100"}
-He glances at you then away.
-
-Fortunately [[the person->celestInfo]] who made us aware of the conflict of interest also kindly offered us a means of resolving the conflict by supervising the hiring of [[suitable agents->agents]] and acquiring the services of a reliable [[native guide->guide]] to help track down the missing property. 
-
-And umm, I'm pleased to say that  the matter has been satisfactorily resolved. Sadly the property couldn't be returned to our original client, but he has received assurance that the said property has been buried in an appropriate umm, err [[tomb]].
-
-I hope ou agree we tried our best to find a resolution to the satisfcation of our clients?
-
-Now, if you excuse me, I do have a number of pressing business matters that need attending to. My clerk will show you [[out->ingilliLeave]]
-
-
-:: celestInfo {"position":"2365,1","size":"100,100"}
-Oh - umm she, I mean I understand they were representing your interests?
-
-I'm afraid as the person is also a client of ours I can't give out any further information or any contact details. Really I can't. Really I  daren't.
-
-{back link}
-
-
-:: agents {"position":"2360,120","size":"100,100"}
-Oh you know the kind - erm bounty hunters, sell swords that sort. I think we recruited three of them - all foreigners. A Grazelander, a Lunar and some petty trader from the Holy Country if I remember right. And of course an umm, agent of our client travelled with them.
-
-Umm, I haven't seen any of them since their commisioning. 
-
-
-{back link}
-
-
-:: guide {"position":"2163,0","size":"100,100"}
-THe guide? Oh he's rather special. A sable rideer who goes by the name Belseri - most 'gifted' they say.
-
-He can often be found at the market - although I haven't seen him of late.
-
-{back link}
-
-
-:: tomb {"position":"2353,248","size":"100,100"}
-Look - I don't know what happened exactly - but that was the message - that our client's wi... umm property was buried with Ty Kora Tek - I mean that's a tomb if anything is.
-
-No, I'm afraid I don't know - out in the Wastes somewhere as I understand - that's why we hired a guide.
-
-{back link}
-
-
-:: ingilliLeave {"position":"2210,266","size":"100,100"}
-You're sure there's a lot more questions someone like Garth would have asked and a lot more information he might have got out of the officious lawyer, but you're not Garth. And you're not sure you want to threaten someone who seems to think he has done you a favour.
-
-You take your leave and head [[back to Gimpy's->Evening in Pavis]]
-
-
-:: speakXalendra {"position":"1708,1300","size":"100,100"}
-The spirit gives a braying laugh.
-
-"Cousin to Carrick Coriales- oh what a joy! Are you the pretty one, the lost one, the foolhardy one, or the dead one?  
-
-Oh well, if you've news of Carrick Coriales then I am sure my mistress will want to hear. Wait and be patient."
-
-You do as it says, glad no longer to be holding its gaze. Andrea leaves you and returns to her work. You eventually doze as time passes and awake to wonder if you should leave. Then the body of the old women gives a twitch and a voice speaks to you without sound.
-
-"Cuthbert Coriales is it? I didn't expect to see you for many a season. Sartar not to your liking? Or are you troubled by dreams? Dreams of the earth is it?" 
-
-The voice laughs. 
-
-"Of course - it must be so. How could you not dream, when husband to one who sleeps the abandoned sleep. For just like all the Earth's husbands and lovers, you abandoned her - telling yourself some excuse that you do it for her, not for youself. Well now she calls you back and you cannot help but answer. 
-
-You think you come to rescue them? I expect you come just to abandon them once again. The abandoned Earth demands sacrifice - but the nature of the sacrifice is to be decided. Ask the desert guide - he knows."
-
-Her eyes roll backwards then the voice comes again.
-
-"Carrick Coriales? I need no news. He is still a fool if a slightly more accomplished one. Perhaps Ferace will guide him to enlightenment although he is as likley to stumble over a cliff. I will visit him one day - you can tell him that if you see him. That should put the fear of the gods into him! 
-
-Now go, I have more important places to be than bandying words with you, warrior. Just remember, sometimes we must play a part even if that part is not the one we desire."
-
-You take your [[leave->leaveXalendra]] - glad to be freed from the voice of the nomad Shaman and pitying Carrick for spending so long in her thrall.
-
-
-:: friendXalendra {"position":"1854,1198","size":"100,100"}
-"A friend?  My mistress does not have 'friends'! 
-
-She is not to be disturbed by such trifling interuptions - I suggest you leave before I show you what the 'friendship' of my Lady feels like."
-
-It stares closely into your eyes, and you sense it beginning to engage with your own spirit.
-
-Do you [[leave->leaveXalendra]] or say you are the [[cousin of Carrick Coriales->speakXalendra]]
-
-
-:: leaveXalendra {"position":"1999,1295","size":"100,100"}
-You think Andrea for her help, but feeling shaky after your encounter with the ancient Antelope rider and her Fetch you leave the temple grounds quickly and seek solace [[back at Gimpys->Evening in Pavis]]
-
-
-:: bargeInfo {"position":"1395,1175","size":"100,100"}
-You speak with the priest Ch'en - you remember him from your quest to gain Zola Fel's blessing for the healing shrine at Stormhaven. You always found him rather distant and little interested in matters beyond that of the river.
-
-if[zfel>20]
-He greets you as a river voice but and asks what brings you to worship of the river after "so long"?
-
-else
-He greets you coldly and asks if you have not come to worship why are you here?
-
-Ask for the services of a [[riverboat and crew->riverboat]]
-
-Ask about the fate of your [[clan and Stormhaven->bargeClan]]
-
-if [xalendra]
-Ask about your dreams and the abandoned earth.
-
-Take your leave and return to [[Gimpy's->Evening in Pavis]]
-
-
-:: riverboat {"position":"1269,1358","size":"100,100"}
-Double-click this passage to edit it.
-
-
-:: bargeClan {"position":"1419,1356","size":"100,100"}
-Double-click this passage to edit it.
-
-
-::  Evening in Pavis {"position":"1515,1203","size":"100,100"}
-Double-click this passage to edit it.
 
 
