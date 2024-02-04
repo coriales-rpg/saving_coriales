@@ -15,7 +15,7 @@ jobs:
 
       - name: build game
         run: |
-          go install github.com/tmedwards/tweego@latest
+          go install github.com/tmedwards/tweego@v2.1.1
           export PATH=$PATH:$(go env GOPATH)/bin
           tweego twee_code/Welcome_to_Pavis.twee -o index.html
 
